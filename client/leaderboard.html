@@ -1,0 +1,46 @@
+<head>
+    <title>Leaderboard</title>
+</head>
+
+<body>
+<div id="outer">
+    <div id="aaa"></div>
+    {{> leaderboard}}
+
+</div>
+
+<div id="progress">
+    <span id="message">Loading ...</span>
+</div>
+</body>
+
+<template name="leaderboard">
+    <div class="leaderboard">
+        {{#each geometries}}
+        {{> geometry}}
+        {{/each}}
+    </div>
+
+    <!--{{#if selected_name}}-->
+    <!--<div class="name">{{selected_name}}</div>-->
+    <!--{{/if}}-->
+
+    <!--{{#unless selected_name}}-->
+    <!--<div class="none">Click a player to select</div>-->
+    <!--{{/unless}}-->
+
+    <div id='contents'>
+        {{#constant}}
+        <canvas id='canvas-element-id' width='480' height='400'>
+            Your browser does not support the HTML5 canvas element.
+        </canvas>
+        {{/constant}}
+    </div>
+</template>
+
+<template name="geometry">
+    <div class="object {{selected}}">
+        <span class="name">{{name}}</span>
+    </div>
+</template>
+
